@@ -1,4 +1,4 @@
-//# project-1
+
 #include <LiquidCrystal.h>
 LiquidCrystal lcd1(8,7,6,5,4,3); 
 
