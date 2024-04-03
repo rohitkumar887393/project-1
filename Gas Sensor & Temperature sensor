@@ -1,7 +1,6 @@
 
 #include <LiquidCrystal.h>
 LiquidCrystal lcd1(8,7,6,5,4,3); 
-
 int gasSensorPin=A0; 
 int tempSensorPin=A1;
 float gasConcentration=0.0; 
