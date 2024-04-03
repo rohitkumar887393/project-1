@@ -1,1 +1,36 @@
-# project-1
+//# project-1
+#include <LiquidCrystal.h>
+LiquidCrystal lcd1(8,7,6,5,4,3); 
+
+int gasSensorPin=A0; 
+int tempSensorPin=A1;
+float gasConcentration=0.0; 
+float temperature=0.0; 
+
+void setup() {
+  lcd1.begin(16,2); 
+
+  lcd1.print("Gas Conc:");
+  lcd1.setCursor(0,1);
+  lcd1.print("Temp:");
+}
+
+void loop(){
+  // Read the analog value from the gas sensor
+  int gasSensorValue = analogRead(gasSensorPin);
+  gasConcentration = gasSensorValue * 0.2;
+  
+  // Read the analog value from the temperature sensor
+  int tempSensorValue = analogRead(tempSensorPin);
+  temperature = (tempSensorValue / 1024.0) * 5000 / 10;
+  
+  lcd1.setCursor(9,0); 
+  lcd1.print(gasConcentration);
+  lcd1.print(" ppm"); 
+  
+  lcd1.setCursor(6,1);
+  lcd1.print(temperature);
+  lcd1.print(" C  "); 
+
+  delay(1000); 
+}
